@@ -68,6 +68,7 @@ public class Main
             }
             
     //      b. Print the values - all on one line - separated by a single space
+            System.out.println("This is the LinkedList transferred over from the myNums array");
             System.out.print(transferredArray);
             
             System.out.println(); // For line break purposes
@@ -88,7 +89,18 @@ public class Main
     //      e. Now print the value in reversed order
     //          i. You must use an iterator for this operation
     //          ii. Print a message indicating the reversed order, then on the following line, print all the values, with a space between them
-                System.out.println("The following line are in reverse order");
+                System.out.println("The following line is in reverse order");
+                
+    //          // Lets first start by creating an iterator
+                Iterator<Integer> iterator = transferredArray.descendingIterator();
+                
+                while(iterator.hasNext()){
+                    System.out.print(iterator.next() + " ");
+                }
+                
+                System.out.println(); // For line break purposes
+                
+                System.out.println("Or...");
                 for(int i = transferredArray.size() - 1; i >= 0; i--){
                     System.out.print(transferredArray.get(i) + " ");
                 }
@@ -98,7 +110,20 @@ public class Main
     //      f. Finally print just the evens
     //          i. An iterator must be used for this step
     //          ii. Print a message, then on the following line, print all the even values; all on one line, separated by a single space
+                Iterator<Integer> iterator1 = transferredArray.iterator();
+                
                 System.out.println("The following line are ONLY the EVEN numbers in the linked list");
+                while(iterator1.hasNext()){
+                    int next = iterator1.next();
+                    if(next % 2 == 0){
+                        System.out.print(next + " ");
+                    }
+                }
+    
+                System.out.println(); // For line break purposes
+                
+                // Lets get some practice using an enhanced for loop
+                System.out.println("Or...");
                 for(int i = 0; i < transferredArray.size(); i++){
                     if(transferredArray.get(i) % 2 == 0){
                         System.out.print(transferredArray.get(i) + " ");
@@ -117,15 +142,14 @@ public class Main
     //      b. Print these values, the values from the TreeSet - using an iterator
     //          i. Verify that the values in the TreeSet match those- in value and order- as those from the array
     //          // These are a little different when it comes to traversing through a data structure
-    //          // Lets first start by creating an iterator
     //          ii. When printing these values, they should be on one line, separated by a space
     //          iii. Place a message above the values, indicating the order for the subsequent output line
-                Iterator<Integer> iterator = myTree.iterator();
+                Iterator<Integer> iterator2 = myTree.iterator();
                 
                 System.out.println("The following elements are in myTree in ascending order");
                 
-                while (iterator.hasNext()) { // If there is another Integer in the data structure (TreeSet), then print it
-                    System.out.print(iterator.next() + " ");
+                while (iterator2.hasNext()) { // If there is another Integer in the data structure (TreeSet), then print it
+                    System.out.print(iterator2.next() + " ");
                 }
                 
                 System.out.println(); // For line break purposes
@@ -140,13 +164,27 @@ public class Main
                 
     //      c. Print only the odd values, on one line, using a single space separator, and having an appropriate message displayed above the output
             System.out.println("The following Integers are ONLY the ODD values");
+            
+            Iterator<Integer> iterator3 = myTree.iterator();
+            
+            while(iterator3.hasNext()){
+                int next = iterator3.next();
+                if(next % 2 != 0){
+                    System.out.print(next + " ");
+                }
+            }
+            
+            System.out.println(); // For line break purposes
+            System.out.println("Or...");
+            
+            // Enhanced for loop way
             for(Integer i : myTree){
                 if(i % 2 != 0){
                     System.out.print(i + " ");
                 }
             }
             
-                System.out.println(); // For line break purposes        
+            System.out.println(); // For line break purposes        
             
     //      d. Can we find a way to print the values in the TreeSet in reverse order?
     //          i. Please, do print them - in reversed order
